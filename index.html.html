@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blackout Mafia — Official (OP) — Join & Handbook</title>
+  <meta name="description" content="Blackout Mafia official handbook — disciplined, creative, community-first. Not for violence. Join via Instagram."/>
+  <style>
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:#070708;
+      color:#e9e9ea;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    :root{
+      --bg:#070708;
+      --card:#111214;
+      --muted:#9aa0a6;
+      --accent:#c8102e;
+      --accent-soft:#861424;
+      --glass: rgba(255,255,255,0.03);
+      --radius:20px;
+    }
+
+    /* animated grain */
+    .grain{
+      position:fixed;inset:0;pointer-events:none;background-image:
+      radial-gradient(circle at 20% 10%, rgba(200,16,46,0.06), transparent 15%),
+      radial-gradient(circle at 80% 30%, rgba(138,143,152,0.04), transparent 15%);
+      z-index:0;mix-blend-mode:overlay;animation: drift 12s linear infinite;
+    }
+    @keyframes drift{0%{transform:translateY(0)}50%{transform:translateY(6px)}100%{transform:translateY(0)}}
+
+    /* Header */
+    header.hero{
+      position:relative;padding:6vh 6vw 4vh;display:flex;gap:20px;align-items:center;z-index:2;
+    }
+    .crest{width:96px;height:96px;border-radius:50%;background:conic-gradient(from 120deg,var(--accent),rgba(10,10,10,.6));display:grid;place-items:center;box-shadow:0 8px 30px rgba(200,16,46,.12);transform:translateZ(0);opacity:0;animation:pop .7s .1s forwards}
+    @keyframes pop{to{opacity:1;transform:translateY(0) scale(1)}from{opacity:0;transform:translateY(-16px) scale(.95}}
+    .crest svg{width:62%;filter:drop-shadow(0 6px 24px rgba(200,16,46,.18))}
+    .hero-copy{flex:1;opacity:0;animation:fadein .7s .25s forwards}
+    @keyframes fadein{to{opacity:1;transform:none}from{opacity:0;transform:translateY(10px)}}
+    .title{font-weight:800;font-size:clamp(24px,4.4vw,46px);letter-spacing:.04em;text-transform:uppercase;text-shadow:0 6px 30px rgba(200,16,46,.12)}
+    .subtitle{margin-top:6px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-size:13px}
+
+    /* CTA */
+    .cta-row{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:linear-gradient(180deg,var(--accent),var(--accent-soft));border:none;padding:10px 14px;border-radius:12px;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 30px rgba(200,16,46,.12);transition:transform .18s ease,filter .18s}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.06);color:var(--muted);font-weight:600}
+    .btn:hover{transform:translateY(-4px);filter:brightness(1.05)}
+
+    /* Container */
+    main.container{padding:2vh 6vw 8vh;position:relative;z-index:2;max-width:1200px;margin:0 auto}
+    .grid{display:grid;grid-template-columns:1fr;gap:20px}
+    @media(min-width:960px){.grid{grid-template-columns:1fr 380px}}
+
+    /* Left content */
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid rgba(255,255,255,.04);border-radius:var(--radius);padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.6);overflow:hidden}
+    .panel h2{font-size:18px;margin-bottom:8px;text-transform:uppercase}
+    .panel p{color:var(--muted);margin-bottom:10px;line-height:1.5}
+
+    /* right side - join card */
+    .join-card{position:sticky;top:6vh;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,.04)}
+    .join-card h3{color:#fff;margin-bottom:8px}
+    .join-card .howto{color:var(--muted);font-size:14px;margin-bottom:12px;line-height:1.5}
+    .socials{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.03);text-decoration:none;color:#eaeaea;font-weight:600}
+    .socials a svg{width:18px;height:18px;opacity:.9;filter:drop-shadow(0 6px 12px rgba(0,0,0,.6))}
+
+    /* badge ribbon */
+    .ribbon{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,rgba(200,16,46,.9),rgba(138,20,36,.7));font-weight:800;color:#fff;font-size:12px;margin-bottom:12px}
+
+    /* rules list */
+    ul.clean{list-style:none;padding-left:0;margin:0}
+    ul.clean li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.02);color:#ddd}
+
+    /* Animated quote */
+    .quote{padding:14px;border-radius:12px;background:linear-gradient(90deg,rgba(200,16,46,.06),transparent);border-left:4px solid var(--accent);font-style:italic;margin-top:8px;animation:glow 3s ease-in-out infinite}
+    @keyframes glow{0%{box-shadow:0 0 0 rgba(200,16,46,0)}50%{box-shadow:0 4px 30px rgba(200,16,46,.06)}100%{box-shadow:0 0 0 rgba(200,16,46,0)}}
+
+    /* footer big */
+    footer.sitefoot{margin-top:30px;text-align:center;color:var(--muted);padding:28px 0;font-size:14px}
+
+    /* Animated entry cards */
+    .card{opacity:0;transform:translateY(8px);animation:cardIn .6s forwards;animation-delay:.2s}
+    @keyframes cardIn{to{opacity:1;transform:none}}
+
+    /* modal join form */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.85));z-index:40;padding:20px}
+    .modal.open{display:flex}
+    .modal-card{background:linear-gradient(180deg,#0e0e10,#121214);padding:22px;border-radius:14px;width:100%;max-width:520px;border:1px solid rgba(255,255,255,.04)}
+    .modal-card h3{margin-bottom:8px}
+    .field{margin-bottom:10px}
+    .field input, .field textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.04);background:transparent;color:#fff}
+    .field label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    .small{font-size:12px;color:var(--muted)}
+
+    /* small animations on hover for ranks */
+    .ranks{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+    .rank-item{padding:10px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid rgba(255,255,255,.03);transition:transform .18s,box-shadow .18s}
+    .rank-item:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+
+    /* tiny footer social */
+    .mini-socials{display:flex;gap:8px;justify-content:center;margin-top:12px}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .smalltext{font-size:13px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="crest" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="crest">
+        <path d="M32 6c-11.6 0-20 8.7-20 19.6 0 6.2 2.6 11.5 7 15.2V50a4 4 0 0 0 4 4h3v-6h6v6h3a4 4 0 0 0 4-4v-9.2c4.4-3.7 7-9 7-15.2C52 14.7 43.6 6 32 6Z" fill="#e8e8e8"/>
+        <circle cx="24" cy="28" r="5" fill="#0b0b0d"/>
+        <circle cx="40" cy="28" r="5" fill="#0b0b0d"/>
+        <rect x="28" y="36" width="8" height="4" rx="2" fill="#0b0b0d"/>
+      </svg>
+    </div>
+    <div class="hero-copy">
+      <div class="title">Blackout Mafia — Official Handbook</div>
+      <div class="subtitle">Silent Until We Strike ■■ — community, loyalty, creativity</div>
+      <div class="cta-row">
+        <button class="btn" id="joinBtn">Request to Join</button>
+        <a class="btn ghost" href="#handbook">View Handbook</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <section class="panel card" id="handbook">
+        <h2>Welcome (Read First)</h2>
+        <p class="muted">Blackout Mafia is a creative community centered on loyalty, events, and member projects. This group is <strong>NOT</strong> about violence, intimidation, or illegal activities. We do not tolerate harm — we build bonds, hold meetups, and create content. Anyone joining agrees to follow our code of conduct and respect local laws.</p>
+
+        <div style="height:12px"></div>
+
+        <h2>How to Join — Simple Steps</h2>
+        <ol class="smalltext" style="margin:12px 0 8px 16px;line-height:1.6;color:#ddd">
+          <li><strong>Follow</strong> both our official Instagram handles: <a href="https://instagram.com/blackoutmafia_" target="_blank" rel="noreferrer" style="color:var(--accent);text-decoration:none">@blackoutmafia_</a> and <a href="https://instagram.com/xv.shadow_triad" target="_blank" rel="noreferrer" style="color:var(--accent);text-decoration:none">@xv.shadow_triad</a>.</li>
+          <li><strong>DM</strong> either handle with a short intro: your name, why you want to join, and what you can contribute (art, events, moderation, design).</li>
+          <li><strong>Get Vouched</strong> — new members need 1-2 existing members to vouch, or pass a short interview with a leader.</li>
+          <li><strong>Sign the Oath</strong> — a non-legal affirmation to follow the code and act responsibly.</li>
+          <li><strong>Attend</strong> a welcome meetup or group call (virtual) to be activated.</li>
+        </ol>
+
+        <div style="height:12px"></div>
+
+        <h2>Membership Requirements</h2>
+        <ul class="clean">
+          <li>Be respectful and cooperative.</li>
+          <li>Do not promote violence, hate speech, or illegal activity.</li>
+          <li>Contribute at least once per month (post, event, or help).</li>
+          <li>Keep internal information private.</li>
+        </ul>
+
+        <div style="height:12px"></div>
+
+        <h2>Code of Conduct (Short)</h2>
+        <p class="muted">We expect members to act like adults: no doxxing, do not threaten others, follow event safety, and use group channels responsibly. Violations lead to warnings and removal.</p>
+
+        <div style="height:12px"></div>
+
+        <h2>Events & Activities</h2>
+        <p class="muted">We run creative meetups, charity drives, design collabs, and member spotlights. If you have event ideas — pitch them in the group.</p>
+
+        <div class="quote">“We are shadows who build, not shadows who harm.”</div>
+
+        <div style="height:18px"></div>
+
+        <h2>Ranks & Roles</h2>
+        <div class="ranks">
+          <div class="rank-item"><strong>Recruit</strong><div class="smalltext muted">— Onboarding & learning</div></div>
+          <div class="rank-item"><strong>Warrior</strong><div class="smalltext muted">— Active contributor</div></div>
+          <div class="rank-item"><strong>Elite</strong><div class="smalltext muted">— Trusted member</div></div>
+          <div class="rank-item"><strong>Shadow Knight</strong><div class="smalltext muted">— Badge holder</div></div>
+          <div class="rank-item"><strong>Overlord’s Circle</strong><div class="smalltext muted">— Leadership & governance</div></div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <h2>FAQ</h2>
+        <p class="smalltext muted"><strong>Q:</strong> Is this group violent? <br/><strong>A:</strong> No. This group forbids real-world violence and illegal acts.</p>
+        <p class="smalltext muted"><strong>Q:</strong> How long before I get accepted? <br/><strong>A:</strong> Usually 3–7 days, depending on vouches and availability.</p>
+      </section>
+
+      <aside class="join-card card">
+        <div class="ribbon">Join Us — Open Now</div>
+        <h3>Request to Join</h3>
+        <p class="howto">Follow, DM, and send a short intro. Or use the quick request form below — we'll review and reply on Instagram.</p>
+
+        <div class="socials">
+          <a href="https://instagram.com/blackoutmafia_" target="_blank" rel="noreferrer" title="@blackoutmafia_">
+            <!-- IG icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+            @blackoutmafia_
+          </a>
+          <a href="https://instagram.com/xv.shadow_triad" target="_blank" rel="noreferrer" title="@xv.shadow_triad">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+            @xv.shadow_triad
+          </a>
+        </div>
+
+        <div style="height:8px"></div>
+
+        <div class="smalltext">Quick Request</div>
+        <button class="btn" id="quickRequest">Open Request Form</button>
+        <div style="height:8px"></div>
+        <div class="smalltext muted">Prefer DM? Message either handle and include: name, why you want to join, and what you can do.</div>
+
+        <div class="divider" style="margin-top:14px"></div>
+
+        <div style="height:6px"></div>
+        <div class="smalltext muted">Privacy: we will not share your personal details. Apply responsibly.</div>
+      </aside>
+    </div>
+
+    <footer class="sitefoot">
+      <div>© Blackout Mafia • Not for violence • Follow: <a href="https://instagram.com/blackoutmafia_" style="color:var(--accent);text-decoration:none">@blackoutmafia_</a> & <a href="https://instagram.com/xv.shadow_triad" style="color:var(--accent);text-decoration:none">@xv.shadow_triad</a></div>
+      <div class="mini-socials">
+        <a href="https://instagram.com/blackoutmafia_" target="_blank" rel="noreferrer" style="color:var(--muted);text-decoration:none">Instagram</a>
+        <a href="#" style="color:var(--muted);text-decoration:none">Contact</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal markup -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-card" role="document">
+      <h3>Request to Join</h3>
+      <p class="smalltext muted">Send a short intro — we'll review and reply via Instagram.</p>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" placeholder="Full name or handle"/>
+      </div>
+      <div class="field">
+        <label for="why">Why do you want to join?</label>
+        <textarea id="why" rows="3" placeholder="Short intro — skills, ideas, or contributions"></textarea>
+      </div>
+      <div class="field">
+        <label for="contrib">What can you contribute?</label>
+        <input id="contrib" placeholder="Art, events, mod, promo, tech..."/>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:6px">
+        <button class="btn" id="sendReq">Send Request</button>
+        <button class="btn ghost" id="closeModal">Cancel</button>
+      </div>
+      <p class="smalltext muted" style="margin-top:8px">Note: This form is client-side — it will not be sent unless you forward it via DM to our Instagram handles.</p>
+    </div>
+  </div>
+
+  <script>
+    // modal logic (client-side only)
+    const modal = document.getElementById('modal');
+    const joinBtn = document.getElementById('joinBtn');
+    const quickRequest = document.getElementById('quickRequest');
+    const closeModal = document.getElementById('closeModal');
+    const sendReq = document.getElementById('sendReq');
+
+    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
+    function closeModalFn(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+
+    joinBtn.addEventListener('click', openModal);
+    quickRequest.addEventListener('click', openModal);
+    closeModal.addEventListener('click', closeModalFn);
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModalFn(); });
+
+    sendReq.addEventListener('click', ()=>{
+      // gather info
+      const name = document.getElementById('name').value.trim();
+      const why = document.getElementById('why').value.trim();
+      const contrib = document.getElementById('contrib').value.trim();
+      if(!name || (!why && !contrib)){
+        alert('Please enter your name and a short intro or contribution.');
+        return;
+      }
+      // show a fake confirmation and instructions to DM
+      alert('Request prepared. Please DM the following to @blackoutmafia_ or @xv.shadow_triad on Instagram:\\n\\n' +
+            'Name: ' + name + '\\nIntro: ' + (why||'n/a') + '\\nContrib: ' + (contrib||'n/a') + '\\n\\nWe will review and respond on Instagram.');
+      closeModalFn();
+    });
+
+    // subtle scroll animation for reveal
+    const revealEls = document.querySelectorAll('.card, .ranks .rank-item');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting){ ent.target.style.animationDelay = (ent.dataset.delay||'0s'); ent.target.classList.add('inview'); ent.target.style.opacity = 1; ent.target.style.transform = 'none'; obs.unobserve(ent.target); }
+      });
+    }, {threshold:0.12});
+    revealEls.forEach((el,i)=>{ el.dataset.delay = (i*80)+'ms'; obs.observe(el); el.style.opacity=0; el.style.transform='translateY(8px)'; });
+
+  </script>
+</body>
+</html>
